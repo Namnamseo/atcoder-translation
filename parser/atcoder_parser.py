@@ -22,14 +22,14 @@ def nodeToMarkdown(node):
 	name = node.name
 
 	if name[0] == 'h' and name[1] in '123456' and len(name)==2:
-		return '#' * int(name[1]) + ' ' + node.string + '\n\n'
+		return '#' * int(name[1]) + ' ' + node.string.strip() + '\n\n'
 
 	if name == 'hr':
 		return '----------\n\n'
 
 	if name in ['p', 'span', 'div', 'section']:
 		ret = subNodes(node)
-		if name == 'p': ret += '\n\n'
+		if name == 'p': ret = ret.strip() + '\n\n'
 		return ret
 
 	if name == 'var':
@@ -42,14 +42,16 @@ def nodeToMarkdown(node):
 			return '>' + subNodes(node, False) + '\n\n'
 
 	if name == 'ul':
-		return subNodes(node)
+		return subNodes(node) + '\n'
 	if name == 'li':
-		return '* ' + subNodes(node, True) + '\n'
+		return '* ' + subNodes(node, True).strip() + '\n'
 
 	if name == 'code':
-		return '`' + subNodes(node, False) + '`\n\n'
+		return '`' + subNodes(node, False) + '`'
 
 	if name == 'img':
+		if 'atcoder.jp' not in node['src']:
+			node['src'] = 'http://abc001.contest.atcoder.jp/' + node['src']
 		return str(node)
 
 	if name == 'strong' or name == 'b':
