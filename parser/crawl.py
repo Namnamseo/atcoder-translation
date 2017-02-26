@@ -9,6 +9,7 @@ def work(contest, mondai):
 		return False
 	try:
 		with open('{}_{}.md'.format(contest, mondai), 'w', encoding='utf-8') as f:
+			f.write('[link]({}).\n\n'.format(url))
 			f.write(atcoder_parser.parse_atcoder_task(r.text))
 	except:
 		import webbrowser
