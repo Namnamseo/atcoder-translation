@@ -81,7 +81,12 @@ def parse_atcoder_task(body):
 	soup = BS(body, 'html.parser')
 	p = soup.find('h2')
 
-	ret = ''
+	ret = """
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'] ] } });
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>"""
+
 	while True:
 		ret += nodeToMarkdown(p)
 		if p.name == 'div' and p.get('id') == 'task-statement': break
