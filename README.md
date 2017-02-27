@@ -1,4 +1,4 @@
-# Translation of past AtCoder contests
+# Translation of AtCoder
 
 ## [Korean](ko)
 
