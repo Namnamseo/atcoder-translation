@@ -13,10 +13,6 @@ def subNodes(node, strip_newline=True):
 			ret.append(nodeToMarkdown(c))
 	return ''.join(ret)
 
-def escapeTeX(s):
-	s = s.replace('_', r'\_')
-	return s
-
 def nodeToMarkdown(node):
 	if type(node) is bs4.element.NavigableString: return ''
 
@@ -37,7 +33,7 @@ def nodeToMarkdown(node):
 		return ret
 
 	if name == 'var':
-		return r'\\(' + escapeTeX(node.string) + r'\\)'
+		return r'$' + node.string + r'$'
 
 	if name == 'pre':
 		if 'class' in node.attrs and 'prettyprint' in node.attrs['class']:
@@ -85,8 +81,7 @@ def parse_atcoder_task(body):
 	soup = BS(body, 'html.parser')
 	p = soup.find('h2')
 
-	ret = ('<script type="text/javascript"'
-		'src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>\n\n')
+	ret = ''
 
 	while True:
 		ret += nodeToMarkdown(p)
