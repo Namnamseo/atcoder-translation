@@ -16,13 +16,3 @@ def work(contest, mondai):
 		webbrowser.open(url)
 		raise
 	return True
-
-try: shutil.rmtree('dump')
-except: pass
-os.mkdir('dump')
-os.chdir('dump')
-
-for i in range(20, 30):
-	j = 1
-	while work('arc{:03d}'.format(i), str(j)):
-		j += 1

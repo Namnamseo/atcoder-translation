@@ -15,7 +15,7 @@ def subNodes(node, strip_newline=True):
 
 def escapeTeX(s):
 	s = s.replace('_', r'\_')
-	
+	return s
 
 def nodeToMarkdown(node):
 	if type(node) is bs4.element.NavigableString: return ''
