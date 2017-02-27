@@ -1,3 +1,5 @@
+[..](..)
+
 # Typical DP Contest
 
 ## A. [contest](tdpc_contest.html)

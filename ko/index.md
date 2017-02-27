@@ -1,3 +1,5 @@
+[..](..)
+
 # 한국어 번역
 
 ## [Typical DP Contest](tdpc)
