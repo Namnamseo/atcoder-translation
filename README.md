@@ -1,5 +1,5 @@
 ### Translation of past AtCoder contests
 
-Currently in Japanese(original text) and Korean.
+Currently in Korean.
 
 Feel free to contribute!
