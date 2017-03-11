@@ -12,4 +12,6 @@
 
 ## N. [tree](tdpc_tree.html)
 
+## S. [grid](tdpc_grid.html)
+
 ## T. [fibonacci](tdpc_fibonacci.html)
